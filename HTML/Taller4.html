@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../css/estilos.css">
+    <script src="../js/utilities.js"></script>
+</head>
+<body>
+
+    
+
+    
+    <button onclick="createUI(); clickOnce()">Click  </button>
+    
+    <script>
+        var imagesDirectory = '../Recursos/';
+
+        function createNode(nodeType) {
+            var node = document.createElement(nodeType);
+            return node;
+        }
+
+        function createNodeWithLink(nodeType, nodeText, quantity) {
+            var node = document.createElement(nodeType);
+
+            for (var i = 0; i < quantity; i++) {
+                var newChild = document.createElement('a');
+                newChild.href = '#';
+                newChild.textContent = nodeText;
+                node.appendChild(newChild);
+            }
+
+            return node;
+        }
+
+        function createImageNode(imageName) {
+            var node = createNode("img");
+            node.src = imagesDirectory + imageName;
+            return node;
+        }
+
+        function appendNodeToBody(node) {
+            document.body.appendChild(node);
+        }
+
+        function appendNodeToContainer(node, container) {
+            container.appendChild(node);
+        }
+
+        function createNodeWithText(nodeType, nodeText, quantity) {
+            var node = document.createElement(nodeType);
+
+            for (var i = 0; i < quantity; i++) {
+                var newText = document.createTextNode(nodeText);
+                var newChild = document.createElement(nodeType);
+                newChild.appendChild(newText);
+                node.appendChild(newChild);
+            }
+            return node;
+        }
+
+        function createUI() {
+           
+            var image = createImageNode('../Recursos/logo.jpeg', '');
+
+            var homeLink = createNodeWithLink('a', 'Home', 1);
+            var servicesLink = createNodeWithLink('a', 'Services', 1);
+            var eventsLink = createNodeWithLink('a', 'Events', 1);
+            var aboutUsLink = createNodeWithLink('a', 'About us', 1);
+            var contactLink = createNodeWithLink('a', 'Contact', 1);
+
+            var node1 = createNode('li');
+            appendNodeToContainer(image, node1);
+            appendNodeToContainer(homeLink, node1);
+            appendNodeToContainer(servicesLink, node1);
+            appendNodeToContainer(eventsLink, node1);
+            appendNodeToContainer(aboutUsLink, node1);
+            appendNodeToContainer(contactLink, node1);
+
+            node1.setAttribute('class', 'div-Content');
+
+            appendNodeToBody(node1);
+
+            
+            var node2 = createNode('div');
+
+            var button1 = createNodeWithLink('button', '$8,450', 1);
+            var button2 = createNodeWithLink('button', 'Pre-Booking', 1);
+            button1.setAttribute('class', 'button1');
+            button2.setAttribute('class', 'green');
+            var heading = createNodeWithText('h3', 'Venice, Italy', 1);
+
+            var paragraph1Text = 'Travel is free responsive by templatemo';
+            var paragraph2Text = 'All images used in this ';
+
+            var paragraph1Parts = paragraph1Text.split(',');
+            var paragraph2Parts = paragraph2Text.split(',');
+
+            var paragraph1 = createNodeWithText('p', paragraph1Parts[0], 1);
+            var paragraph2 = createNodeWithText('p', paragraph2Parts[0], 1);
+
+            appendNodeToContainer(button1, node2);
+            appendNodeToContainer(heading, node2);
+            appendNodeToContainer(paragraph1, node2);
+            appendNodeToContainer(paragraph2, node2);
+            appendNodeToContainer(button2, node2);
+
+            appendNodeToBody(node2);
+
+            node2.setAttribute('class', 'div-Content2');
+            button2.setAttribute('class', 'button2');
+
+            
+            var node3 = createNode('div');
+
+            var button3 = createNodeWithLink('button', 'ITALY', 1);
+            var image2 = createImageNode('image1.jpeg', '');
+            var paragraph3 = createNodeWithText('p', 'Rome, Milan, Naples', 1);
+            var button4 = createNodeWithLink('button', '$1800 BOOK NOW', 1);
+
+            paragraph3.setAttribute('class', 'red');
+            var paragraph4 = createNodeWithText('p', 'SILVER HOTEL, 4 NIGHTS, 5 STARS', 1);
+            paragraph4.setAttribute('class', 'green');
+
+            
+
+            appendNodeToContainer(button3, node3);
+            appendNodeToContainer(image2, node3);
+            appendNodeToContainer(paragraph3, node3);
+            appendNodeToContainer(paragraph4, node3);
+            appendNodeToContainer(button4, node3);
+
+            appendNodeToBody(node3);
+
+            node3.setAttribute('class', 'div-Content3');
+
+            
+            var node4 = createNode('div');
+
+            var button5 = createNodeWithLink('button', 'FRANCE', 1);
+            var image3 = createImageNode('image2.jpeg', '');
+            var paragraph5 = createNodeWithText('p', 'Paris, Marseille, Lyon', 1);
+            var button6 = createNodeWithLink('button', '$2300 BOOK NOW', 1);
+
+            paragraph5.setAttribute('class', 'red');
+            var paragraph6 = createNodeWithText('p', 'NEW PALACE, 5 NIGHTS, 5 STARS', 1);
+            paragraph6.setAttribute('class', 'green');
+
+            appendNodeToContainer(button5, node4);
+            appendNodeToContainer(image3, node4);
+            appendNodeToContainer(paragraph5, node4);
+            appendNodeToContainer(paragraph6, node4);
+            appendNodeToContainer(button6, node4);
+
+            appendNodeToBody(node4);
+
+            node4.setAttribute('class', 'div-Content4');
+
+            
+            var node5 = createNode('div');
+
+            var button7 = createNodeWithLink('button', 'GERMANY', 1);
+            var image4 = createImageNode('image3.jpeg', '');
+            var paragraph7 = createNodeWithText('p', 'Berlin, Hamburg, Munich', 1);
+            var button8 = createNodeWithLink('button', '$3100 BOOK NOW', 1);
+
+            paragraph7.setAttribute('class', 'red');
+            var paragraph8 = createNodeWithText('p', 'LUKE HOTEL, 5 NIGHTS, 6 STARS', 1);
+            paragraph8.setAttribute('class', 'green');
+
+            appendNodeToContainer(button7, node5);
+            appendNodeToContainer(image4, node5);
+            appendNodeToContainer(paragraph7, node5);
+            appendNodeToContainer(paragraph8, node5);
+            appendNodeToContainer(button8, node5);
+
+            appendNodeToBody(node5);
+
+            node5.setAttribute('class', 'div-Content5');
+
+          
+            var node6 = createNode('div');
+
+            var button9 = createNodeWithLink('button', 'SPAIN', 1);
+            var image5 = createImageNode('image 4.jpg', '');
+            var paragraph9 = createNodeWithText('p', 'Madrid, Barcelona, Valencia', 1);
+            var button10 = createNodeWithLink('button', '$4100 BOOK NOW', 1);
+
+            paragraph9.setAttribute('class', 'red');
+            var paragraph10 = createNodeWithText('p', 'GOOD HOTEL, 6 NIGHTS, 6 STARS', 1);
+            paragraph10.setAttribute('class', 'green');
+
+            appendNodeToContainer(button9, node6);
+            appendNodeToContainer(image5, node6);
+            appendNodeToContainer(paragraph9, node6);
+            appendNodeToContainer(paragraph10, node6);
+            appendNodeToContainer(button10, node6);
+
+            appendNodeToBody(node6);
+
+            node6.setAttribute('class', 'div-Content6');
+
+            var image6 = createImageNode('3.JPG', '');
+            image6.setAttribute('class', 'image6');
+            appendNodeToBody(image6);
+
+            var image7 = createImageNode('logo.jpeg', '');
+            image7.setAttribute('class', 'image7');
+            appendNodeToBody(image7);
+        }
+
+        
+    </script>
+</body>
+</html>
